@@ -1,6 +1,7 @@
 :root {
     --primary: #1e5f74;
-    --secondary: #4ba3c3;
+    /* --secondary: #4ba3c3; */
+    --secondary: #082567;
     --light: #f5f8fa;
     --dark: #333333;
     --accent: #68c3d4;
@@ -14,23 +15,34 @@
     /* font-family: "Cormorant Garamond", serif; */
 }
 
+/* Image specific fixes */
+img {
+    max-width: 100%;
+    height: auto; /* Add height: auto to maintain aspect ratio */
+    object-fit: cover;
+    display: block; /* Prevents inline image whitespace issues */
+}
+
 body {
     background-color: var(--light);
     color: var(--dark);
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
 }
 
 header {
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
     color: white;
     padding: 1rem;
     text-align: center;
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("/api/placeholder/1200/400");
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/api/placeholder/1200/400"); */
+    background-image: url("https://res.cloudinary.com/dyuhtpg5y/image/upload/v1747428418/broom/KEY_IMAGE_LANDSCAPE_ldawc2.jpg");
     background-size: cover;
-    background-position: center;
-    height: 400px;
+    background-position: bottom;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,18 +92,22 @@ nav ul li a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    width: 100%; /* Ensure container takes full width up to max-width */
+    overflow: hidden; /* Prevent container overflow */
 }
 
 .section {
     margin-bottom: 3rem;
+    width: 100%; /* Ensure sections take full width */
 }
 
 .section-title {
     color: var(--primary);
     margin-bottom: 1.5rem;
     font-size: 2rem;
-    /* position: relative; */
+    position: relative;
     padding-bottom: 0.5rem;
+    z-index: 1; /* Changed from -1 to prevent positioning issues */
 }
 
 .section-title::after {
@@ -99,7 +115,7 @@ nav ul li a:hover {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100px;
+    width: 250px;
     height: 3px;
     background-color: var(--secondary);
 }
@@ -113,6 +129,7 @@ nav ul li a:hover {
     flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 2rem;
+    width: 100%; /* Ensure story takes full width */
 }
 
 .story-text {
@@ -123,18 +140,27 @@ nav ul li a:hover {
 .story-image {
     flex: 1;
     min-width: 300px;
+    max-width: 100%; /* Ensure the image container doesn't overflow */
     background-color: #ddd;
     height: 300px;
-    background-image: url("/api/placeholder/600/300");
-    background-size: cover;
-    background-position: center;
     border-radius: 8px;
+    overflow: hidden; /* Added to contain the image */
+    position: relative; /* For image positioning */
+    z-index: -1;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    width: 100%; /* Ensure features takes full width */
 }
 
 .feature-card {
@@ -161,6 +187,7 @@ nav ul li a:hover {
     text-align: center;
     color: white;
     margin-top: 3rem;
+    width: 100%; /* Ensure CTA takes full width */
 }
 
 .cta h2 {
@@ -187,6 +214,7 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
+    width: 100%; /* Ensure gallery takes full width */
 }
 
 .gallery-item {
@@ -194,9 +222,15 @@ nav ul li a:hover {
     background-color: #ddd;
     border-radius: 8px;
     overflow: hidden;
-    background-image: url("/api/placeholder/400/200");
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    z-index: -1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 footer {
@@ -204,6 +238,7 @@ footer {
     color: white;
     padding: 2rem;
     text-align: center;
+    width: 100%; /* Ensure footer takes full width */
 }
 
 .normal-nav {
@@ -217,7 +252,6 @@ footer {
 .social-links {
     margin-top: 1rem;
     text-decoration: underline;
-
     padding-block: 1em;
 }
 
@@ -256,6 +290,11 @@ footer {
 
     .container {
         padding: 1rem;
+    }
+
+    /* Fix for mobile image responsiveness */
+    .story-image {
+        width: 100%;
     }
 }
 
