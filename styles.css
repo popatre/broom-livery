@@ -116,6 +116,7 @@ nav ul li a:hover {
     margin-bottom: 1.5rem;
     font-size: 2rem;
     position: relative;
+    z-index: -1;
     padding-bottom: 0.5rem;
     opacity: 1;
 }
