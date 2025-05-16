@@ -63,6 +63,7 @@ header {
     text-shadow: #161616 2px 1px 10px;
     background-color: var(--primary);
     width: 60%;
+    z-index: -1;
     opacity: 0.9;
     border-radius: 3px;
     max-width: 1100px;
@@ -116,7 +117,7 @@ nav ul li a:hover {
     font-size: 2rem;
     position: relative;
     padding-bottom: 0.5rem;
-    z-index: 1; /* Changed from -1 to prevent positioning issues */
+    opacity: 1;
 }
 
 .section-title::after {
@@ -349,7 +350,8 @@ nav ul {
     }
 
     .tagline {
-        width: 90%;
+        width: 80%;
+        opacity: 1;
     }
     .tagline p {
         font-size: 0.8rem;
