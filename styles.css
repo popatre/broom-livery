@@ -267,6 +267,10 @@ footer {
     margin-bottom: 1rem;
 }
 
+.contact-info__phone {
+    color: var(--light);
+}
+
 .social-links {
     margin-top: 1rem;
     text-decoration: underline;
